@@ -1,6 +1,6 @@
 @extends('admin.layouts.admin')
 
-@section('title', __('title', ['title' => 'Detail Order']))
+@section('title', __('title_name', ['title' => 'Detail Order', 'name' => $order->order_code]))
 
 @section('content')
 <div class="row">
@@ -12,7 +12,11 @@
 			</tr>
 			<tr>
 				<th>{{ __('name') }}</th>
-				<td>{{ 'Product Name' }}</td>
+				<td>{{ $order->product->name }}</td>
+			</tr>
+			<tr>
+				<th>{{ __('price') }}</th>
+				<td>{{ $order->product->price }}</td>
 			</tr>
 			<tr>
 				<th>{{ __('quantity') }}</th>

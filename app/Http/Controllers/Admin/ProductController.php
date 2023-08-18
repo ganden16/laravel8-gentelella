@@ -20,6 +20,11 @@ class ProductController extends Controller
 		return view('admin.products.show', compact('product'));
 	}
 
+	public function findProduct(Product $product)
+	{
+		return response()->json([$product],200);
+	}
+
 	public function create()
 	{
 		return view('admin.products.create');
@@ -28,7 +33,7 @@ class ProductController extends Controller
 	public function post(Request $request)
 	{
 		$validator = Validator::make($request->all(), [
-			'name' => 'required',
+			'name' => 'required|numeric',
 			'price' => 'required|numeric',
 			'quantity' => 'required|numeric',
 		]);
@@ -68,7 +73,7 @@ class ProductController extends Controller
 				->withErrors($validator)
 				->withInput();
 		}
-		
+
 		$product = Product::find($id);
 		$product->name = $request->name;
 		$product->price = $request->price;

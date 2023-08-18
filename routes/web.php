@@ -69,6 +69,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 	 //Products
     Route::get('products', 'ProductController@index')->name('products');
     Route::get('products/details/{product}', 'ProductController@show')->name('products.show');
+    Route::get('products/find/{product}', 'ProductController@findProduct')->name('products.find');
     Route::get('products/create', 'ProductController@create')->name('products.create');
     Route::post('products', 'ProductController@post')->name('products.post');
     Route::get('products/edit/{product}', 'ProductController@edit')->name('products.edit');

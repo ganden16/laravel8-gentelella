@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
+	protected $guarded = [];
+
+	public function orders()
+	{
+		return $this->hasMany(Order::class);
+	}
 }

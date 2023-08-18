@@ -18,7 +18,7 @@
 			@foreach($orders as $order)
 			<tr>
 				<td>{{ $order->order_code }}</td>
-				<td>Product Name</td>
+				<td>{{ $order->product->name }}</td>
 				<td>{{ $order->qty }}</td>
 				<td>
 					<a class="btn btn-xs btn-primary" href="{{ route('admin.orders.show', [$order->id]) }}"
